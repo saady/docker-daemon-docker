@@ -42,4 +42,4 @@ ADD . /home/docker
 VOLUME ["/var/lib/docker"]
 
 # Set the default command.
-CMD ["./wrap-docker"]
+CMD ["./wrapdocker"]
