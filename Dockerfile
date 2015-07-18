@@ -36,10 +36,10 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 WORKDIR /home/docker
 
 # Add files to the container.
-ADD . /home/docker
+COPY wrap-docker.sh /usr/local/bin/wrap-docker
 
 # Define volumes.
 VOLUME ["/var/lib/docker"]
 
 # Set the default command.
-CMD ["./wrapdocker"]
+CMD ["/usr/local/bin/wrap-docker"]
