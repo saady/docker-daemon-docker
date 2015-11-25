@@ -4,32 +4,18 @@
 # http://github.com/tenstartups/docker-daemon
 #
 
-FROM debian:jessie
+FROM alpine
 
 MAINTAINER Marc Lennox <marc.lennox@gmail.com>
 
 # Set environment variables.
 ENV \
-  DEBIAN_FRONTEND=noninteractive \
   TERM=xterm-color
 
-# Install the rest of the base packages.
-RUN apt-get update && apt-get -y install \
-  apt-transport-https \
-  build-essential \
-  ca-certificates \
-  curl \
-  git \
-  iptables \
-  nano \
-  net-tools \
-  wget
-
-# Install Docker
-RUN curl -sSL https://get.docker.com/ | sh
-
-# Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Install packages.
+RUN \
+  apk --update add bash coreutils curl docker nano wget && \
+  rm -rf /var/cache/apk/*
 
 # Add files to the container.
 COPY wrap-docker.sh /usr/local/bin/wrap-docker
