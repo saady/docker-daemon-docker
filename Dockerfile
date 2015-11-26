@@ -14,6 +14,8 @@ ENV \
 
 # Install packages.
 RUN \
+  echo 'http://dl-4.alpinelinux.org/alpine/v3.3/main' > /etc/apk/repositories && \
+  echo 'http://dl-4.alpinelinux.org/alpine/v3.3/community' >> /etc/apk/repositories && \
   apk --update add bash coreutils curl docker nano wget && \
   rm -rf /var/cache/apk/*
 
