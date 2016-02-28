@@ -4,7 +4,7 @@
 # http://github.com/tenstartups/docker-daemon
 #
 
-FROM alpine
+FROM tenstartups/alpine:latest
 
 MAINTAINER Marc Lennox <marc.lennox@gmail.com>
 
@@ -14,8 +14,8 @@ ENV \
 
 # Install packages.
 RUN \
-  echo 'http://dl-4.alpinelinux.org/alpine/v3.3/community' >> /etc/apk/repositories && \
-  apk --update add bash coreutils curl docker nano wget && \
+  echo 'http://dl-4.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
+  apk --update add docker && \
   rm -rf /var/cache/apk/*
 
 # Add files to the container.
