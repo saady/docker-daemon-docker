@@ -87,7 +87,6 @@ popd >/dev/null
 rm -rf /var/run/docker.pid
 
 # Start the docker daemon
-DOCKER_SOCKET=${DOCKER_SOCKET:-/var/run/docker.sock}
 if [ "$DOCKER_PORT" ]; then
 	exec docker daemon -H 0.0.0.0:$DOCKER_PORT -H unix://$DOCKER_SOCKET \
 		$DOCKER_DAEMON_ARGS
