@@ -15,7 +15,7 @@ ENV \
 
 # Install packages.
 RUN \
-  echo 'http://dl-4.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
+  echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
   apk --update add docker && \
   rm -rf /var/cache/apk/*
 
